@@ -4,13 +4,9 @@ import path from "path";
 
 // https://vite.dev/config/
 export default defineConfig({
-    plugins: [react()],
+    base: "/vrct_supporters/",
     build: {
-      outDir: path.resolve(__dirname, "docs"),
-      rollupOptions: {
-          input: {
-              main: path.resolve(__dirname, "index.html"),
-          },
-      },
-  },
+        outDir: path.resolve(__dirname, "docs"),
+    },
+    plugins: [react()],
 })
