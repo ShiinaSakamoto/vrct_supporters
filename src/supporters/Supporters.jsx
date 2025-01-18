@@ -157,7 +157,11 @@ const SupportsWrapper = () => {
                     className={clsx(styles.supporter_image_wrapper, options.class_name)}
                     style={{ "--delay": random_delay }}
                 >
-                    <img className={styles.supporter_image} src={img_src} />
+                    <img
+                        className={styles.supporter_image}
+                        src={img_src}
+                        onLoad={(e) => e.target.setAttribute("data-loaded", "true")}
+                    />
                     {chato_expression_src && (
                         <img
                             className={styles.default_chato_expression_image}
