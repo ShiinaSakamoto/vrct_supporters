@@ -6,6 +6,7 @@
     align-items: center;
     width: 100%;
     // background-color: gray;
+    overflow: visible;
 }
 
 .support_us_container {
@@ -15,6 +16,7 @@
     align-items: center;
     gap: 2rem;
     width: 100%;
+    overflow: visible;
 
 }
 .fanbox_img {
@@ -80,11 +82,23 @@
 .supporter_image_wrapper {
     position: relative;
     width: 18rem;
+    // height: 6.2rem;
+    // aspect-ratio: 560 / 193;
     overflow: hidden;
+    background-color: #f0f0f0;
 }
 
 .supporter_image {
-    width: 100%;
+    // width: 100%;
+    width: 18rem;
+    aspect-ratio: 560 / 193;
+    // object-fit: cover; // 画像を切り抜いてコンテナにフィットさせる
+    transition: opacity 0.5s ease; // 読み込み時のアニメーション
+    opacity: 0; // 初期状態で非表示
+}
+
+.supporter_image[data-loaded="true"] {
+    opacity: 1; // 画像読み込み後に表示
 }
 
 .mogu_image {
