@@ -12,8 +12,8 @@ export default defineConfig({
         viteStaticCopy({
             targets: [
                 {
-                    src: "src/assets/**/*", // `assets` の中身を
-                    dest: "assets" // `dist/assets` にそのままコピー
+                    src: "src/assets/supporters/*",
+                    dest: "assets"
                 },
             ],
         }),
