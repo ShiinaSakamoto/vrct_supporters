@@ -25,6 +25,7 @@ html, body {
     height: 100%;
     font-family: var(--font_family); /* If not found the font family where 'root:' that is selected by user*/
     border-radius: 1.8rem;
+    background-color: var(--dark_888_color);
 }
 
 
