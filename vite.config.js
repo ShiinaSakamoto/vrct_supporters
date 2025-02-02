@@ -16,7 +16,7 @@ export default defineConfig({
             "@root": path.resolve(__dirname),
 
             "@images": path.resolve(__dirname, "src/assets"),
-            "@supporters_page_assets": path.resolve(__dirname, "public/supporters"),
+            "@supporters_page_assets": path.resolve(__dirname, "dev_assets/supporters"),
             "@utils": path.resolve(__dirname, "src/utils.js"),
         },
     },
