@@ -6,10 +6,12 @@
   "scripts": {
     "dev-ui": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "output": "node output_json.js"
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "fast-glob": "^3.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "vite-plugin-svgr": "^4.3.0"
@@ -25,6 +27,7 @@
     "eslint-plugin-react-refresh": "^0.4.16",
     "globals": "^15.14.0",
     "sass": "^1.83.4",
-    "vite": "^6.0.5"
+    "vite": "^6.0.5",
+    "vite-plugin-static-copy": "^2.2.0"
   }
 }

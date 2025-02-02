@@ -4,28 +4,13 @@ import ArrowLeftSvg from "@images/arrow_left.svg?react";
 import styles from "./SupportersWrapper.module.scss";
 import { shuffleArray, randomIntMinMax, randomMinMax } from "@utils";
 
-// import {
-//     useSettingBoxScrollPosition,
-// } from "@logics_configs"
-
 import json_data from "@supporters_page_assets/data.json";
+const supporters_settings = json_data.supporters_settings;
+const supporters_data = json_data.supporters_data;
 
-const target_supporting_month = "2025-01";
-const calc_support_period = ["2024-10", "2024-11", "2024-12", "2025-01"];
-
-const SHUFFLE_INTERVAL_TIME = 20000;
-
-
-
-const and_you_data = {
-    supporter_id: "and_you",
-};
-
-
-const getImagePath = (images, file_name) => {
-    const image_path = Object.keys(images).find((path) => path.endsWith(`${file_name}.png`));
-    return image_path ? images[image_path]?.default : null;
-};
+const target_supporting_month = supporters_settings.target_supporting_month;
+const calc_support_period = supporters_settings.calc_support_period;
+const chato_ex_count = supporters_settings.chato_ex_count;
 
 const image_sets = {
     supporter_cards: import.meta.glob("@supporters_page_assets/supporter_cards/*.png", { eager: true }),
@@ -33,6 +18,19 @@ const image_sets = {
     supporters_labels: import.meta.glob("@supporters_page_assets/supporters_labels/*.png", { eager: true }),
     supporters_icons: import.meta.glob("@supporters_page_assets/supporters_icons/*.png", { eager: true }),
 };
+
+const SHUFFLE_INTERVAL_TIME = 20000;
+
+const and_you_data = {
+    supporter_id: "and_you",
+};
+
+const getImagePath = (images, file_name) => {
+    const image_path = Object.keys(images).find((path) => path.endsWith(`${file_name}.png`));
+    return image_path ? images[image_path]?.default : null;
+};
+
+
 
 const getSupporterCard = (plan_name) => {
     const card_map = {
@@ -53,13 +51,12 @@ const getSupportersLabelsPath = (file_name) =>
 const getSupportersIconsPath = (file_name) =>
     getImagePath(image_sets.supporters_icons, file_name);
 
-const chato_ex_count = Object.keys(image_sets.chato_expressions).length;
 
 export const SupportersWrapper = () => {
     // const { saveScrollPosition, restoreScrollPosition } = useSettingBoxScrollPosition();
 
     let credit_pending_count = 0;
-    const filtered_data = json_data.filter((supporter) => {
+    const filtered_data = supporters_data.filter((supporter) => {
         if (!supporter.supporter_id) return false;
 
         const months = Object.keys(supporter).filter((key) => key.match(/^\d{4}-\d{2}$/));
