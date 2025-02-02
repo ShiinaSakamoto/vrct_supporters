@@ -34,10 +34,10 @@ const getImagePath = (images, file_name) => {
 
 const getSupporterCard = (plan_name) => {
     const card_map = {
-        "もぐもぐ_2000": "mogu_card",
-        "もちもち_1000": "mochi_card",
-        "ふわふわ_500": "fuwa_card",
-        "Basic_300": "basic_card",
+        "mogu_2000": "mogu_card",
+        "mochi_1000": "mochi_card",
+        "fuwa_500": "fuwa_card",
+        "basic_300": "basic_card",
     };
     return getImagePath(image_sets.supporter_cards, card_map[plan_name] || "basic_card");
 };
@@ -63,8 +63,8 @@ export const SupportersWrapper = () => {
         const has_valid_month = months.some((month) => supporter[month]);
         if (!has_valid_month) return false;
 
-        const basic_300_months = months.filter((month) => supporter[month] === "Basic_300");
-        const has_special_plan = months.some((month) => ["ふわふわ_500", "もちもち_1000", "もぐもぐ_2000"].includes(supporter[month]));
+        const basic_300_months = months.filter((month) => supporter[month] === "basic_300");
+        const has_special_plan = months.some((month) => ["fuwa_500", "mochi_1000", "mogu_2000"].includes(supporter[month]));
 
         if (basic_300_months.length === 1 && !has_special_plan) {
             credit_pending_count++;
@@ -75,29 +75,29 @@ export const SupportersWrapper = () => {
     });
 
     const grouped_data = {
-        もぐもぐ_2000: [],
-        もちもち_1000: [],
-        ふわふわ_500: [],
-        Basic_300: [],
-        empty: [],
+        mogu_2000: [],
+        mochi_1000: [],
+        fuwa_500: [],
+        basic_300: [],
+        former_supporter: [],
         and_you: [],
     };
 
     filtered_data.forEach((supporter) => {
-        const value = supporter[target_supporting_month] || "empty";
+        const value = supporter[target_supporting_month] || "former_supporter";
         if (grouped_data[value]) {
             grouped_data[value].push(supporter);
         } else {
-            grouped_data["empty"].push(supporter);
+            grouped_data["former_supporter"].push(supporter);
         }
     });
 
     const [supportersData, setSupportersData] = useState(() => [
-        ...grouped_data["もぐもぐ_2000"],
-        ...grouped_data["もちもち_1000"],
-        ...grouped_data["ふわふわ_500"],
-        ...grouped_data["Basic_300"],
-        ...grouped_data["empty"],
+        ...grouped_data["mogu_2000"],
+        ...grouped_data["mochi_1000"],
+        ...grouped_data["fuwa_500"],
+        ...grouped_data["basic_300"],
+        ...grouped_data["former_supporter"],
         and_you_data,
     ]);
 
@@ -112,11 +112,11 @@ export const SupportersWrapper = () => {
     const shuffleSupporters = useCallback(() => {
         // saveScrollPosition();
         const newSupportersData = [
-            ...shuffleArray(grouped_data["もぐもぐ_2000"]),
-            ...shuffleArray(grouped_data["もちもち_1000"]),
-            ...shuffleArray(grouped_data["ふわふわ_500"]),
-            ...shuffleArray(grouped_data["Basic_300"]),
-            ...shuffleArray(grouped_data["empty"]),
+            ...shuffleArray(grouped_data["mogu_2000"]),
+            ...shuffleArray(grouped_data["mochi_1000"]),
+            ...shuffleArray(grouped_data["fuwa_500"]),
+            ...shuffleArray(grouped_data["basic_300"]),
+            ...shuffleArray(grouped_data["former_supporter"]),
             and_you_data,
         ];
         setSupportersData(newSupportersData);
@@ -135,7 +135,7 @@ export const SupportersWrapper = () => {
             const target_plan = item[target_supporting_month];
             const img_src = getSupporterCard(target_plan);
             const is_default_icon = item.supporter_icon_id === "";
-            const is_icon_plan = ["もぐもぐ_2000", "もちもち_1000"].includes(target_plan);
+            const is_icon_plan = ["mogu_2000", "mochi_1000"].includes(target_plan);
             const is_and_you = item.supporter_id === "and_you";
 
             const random_delay = `${randomMinMax(0.1, 6).toFixed(1)}s`;
@@ -171,7 +171,7 @@ export const SupportersWrapper = () => {
 
 
             const supporter_image_wrapper_classname = clsx(styles.supporter_image_wrapper, {
-                [styles.mogu_image]: target_plan === "もぐもぐ_2000",
+                [styles.mogu_image]: target_plan === "mogu_2000",
             });
 
             return is_and_you ? (
@@ -243,10 +243,10 @@ const SupporterPeriodContainer = ({settings}) => {
             {Object.entries(period_data).map(([key, item], index) => {
                 if (item === "") return null;
                 const class_name = clsx(styles.period_box, {
-                    [styles.mogu_bar]: item === "もぐもぐ_2000",
-                    [styles.mochi_bar]: item === "もちもち_1000",
-                    [styles.fuwa_bar]: item === "ふわふわ_500",
-                    [styles.basic_bar]: item === "Basic_300",
+                    [styles.mogu_bar]: item === "mogu_2000",
+                    [styles.mochi_bar]: item === "mochi_1000",
+                    [styles.fuwa_bar]: item === "fuwa_500",
+                    [styles.basic_bar]: item === "basic_300",
                 });
 
                 return <div key={index} className={class_name}></div>
