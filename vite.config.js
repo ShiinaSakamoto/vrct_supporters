@@ -20,7 +20,7 @@ export default defineConfig({
     ],
     base: "/vrct_supporters/",
     build: {
-        outDir: path.resolve(__dirname, "public"),
+        outDir: path.resolve(__dirname, "docs"),
     },
 
     resolve: {
