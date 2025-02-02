@@ -13,7 +13,7 @@ export default defineConfig({
             targets: [
                 {
                     src: "src/assets/supporters/*",
-                    dest: "assets/supporters"
+                    dest: path.resolve(__dirname, "docs/assets/supporters"),
                 },
             ],
         }),
