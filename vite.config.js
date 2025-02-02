@@ -14,11 +14,7 @@ export default defineConfig({
                 {
                     src: "src/assets/supporters/*",
                     dest: path.resolve(__dirname, "docs/assets/supporters"),
-                },
-                {
-                    src: "src/assets/supporters/*",
-                    dest: path.resolve(__dirname, "public/supporters"),
-                },
+                }
             ],
         }),
     ],
