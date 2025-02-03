@@ -3,6 +3,8 @@ import path from "path";
 import{ createCanvas, registerFont }from "canvas" ;
 import { fileURLToPath } from "url";
 
+import { supporters_settings } from "./supporters_settings.js";
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // エラーログ用関数
@@ -84,8 +86,9 @@ if (!fs.existsSync(outputDir)) {
 const text_color_white = "#f2f2f2";
 const text_color_black = "#050505";
 
-const calc_support_period = ["2024-10", "2024-11", "2024-12", "2025-01"];
-const calc_supporting_month = "2025-01";
+const calc_support_period = supporters_settings.calc_support_period;
+const calc_supporting_month = calc_support_period.at(-1);
+
 const right_away_credit_able_plan_list = ["mogu_2000", "mochi_1000", "fuwa_500"];
 
 
