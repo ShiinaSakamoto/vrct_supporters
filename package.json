@@ -7,9 +7,10 @@
     "dev-ui": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "output": "node output_json.js"
+    "output": "node output_labels.js && node output_json.js"
   },
   "dependencies": {
+    "canvas": "^3.1.0",
     "clsx": "^2.1.1",
     "fast-glob": "^3.3.3",
     "react": "^18.3.1",

@@ -6,8 +6,10 @@ const supporters_data = JSON.parse(readFileSync("./supporters_data.json", "utf8"
 // Read supporters settings data.
 import { supporters_settings } from "./supporters_settings.js";
 
+const filtered_supporters_data = supporters_data.map(({ name, display_name, memo, ...rest }) => rest);
+
 const data = {
-    supporters_data: supporters_data,
+    supporters_data: filtered_supporters_data,
     supporters_settings: supporters_settings,
 };
 
