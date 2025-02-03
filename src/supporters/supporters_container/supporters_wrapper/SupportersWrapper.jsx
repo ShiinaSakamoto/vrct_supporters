@@ -11,7 +11,7 @@ const supporters_data = json_data.supporters_data;
 const target_supporting_month = supporters_settings.target_supporting_month;
 const calc_support_period = supporters_settings.calc_support_period;
 const chato_ex_count = supporters_settings.chato_ex_count;
-const last_updated_date = new Date(supporters_settings.last_updated_date).toString();
+const last_updated_local_date = new Date(supporters_settings.last_updated_utc_date).toString();
 
 const image_sets = {
     supporter_cards: import.meta.glob("@supporters_page_assets/supporter_cards/*.png", { eager: true }),
@@ -219,7 +219,7 @@ export const SupportersWrapper = () => {
     return (
         <>
             <div className={styles.supporters_wrapper}>{renderImages()}</div>
-            <p className={styles.last_updated_date}>{`Last updated date:\n${last_updated_date}`}</p>
+            <p className={styles.last_updated_local_date}>{`Last updated date:\n${last_updated_local_date}`}</p>
         </>
     );
 };
