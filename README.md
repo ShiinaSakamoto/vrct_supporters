@@ -1,11 +1,15 @@
+# VRCT Supporter Page
+[VRCT Project](https://github.com/misyaguziya/VRCT)
+
 <div align="center">
 
 <picture>
-    <source srcset="src/assets/vrct_logo_white.png" media="(prefers-color-scheme: dark)" width="50%">
-    <source srcset="src/assets/vrct_logo_black.png" media="(prefers-color-scheme: light)" width="50%">
-    <img src="src/assets/vrct_logo.png" alt="VRCT Logo" width="50%">
+    <source srcset="src/assets/vrct_logo_white.png" media="(prefers-color-scheme: dark)" width="30%">
+    <source srcset="src/assets/vrct_logo_black.png" media="(prefers-color-scheme: light)" width="30%">
+    <img src="src/assets/vrct_logo.png" alt="VRCT Logo" width="30%">
 </picture>
 
+<br>
 <br>
 <br>
 
@@ -31,6 +35,7 @@
     </picture>
 </a>&emsp;&nbsp;
 
+<br>
 <br>
 
 <picture>
