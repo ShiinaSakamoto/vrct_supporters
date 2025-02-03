@@ -1,6 +1,7 @@
 import styles from "./SupportersContainer.module.scss";
 import { useState, useEffect } from "react";
 import vrct_supporters_title from "@supporters_page_assets/vrct_supporters_title.png";
+import calc_period_label from "@supporters_page_assets/calc_period_label.png";
 import { SupportersWrapper } from "./supporters_wrapper/SupportersWrapper";
 import { clsx } from "clsx";
 const SHUFFLE_INTERVAL_TIME = 20000;
@@ -8,7 +9,10 @@ const SHUFFLE_INTERVAL_TIME = 20000;
 export const SupportersContainer = () => {
     return (
         <div className={styles.supporters_container}>
-            <img className={styles.vrct_supporters_title} src={vrct_supporters_title} />
+            <div className={styles.vrct_supporters_title_wrapper}>
+                <img className={styles.vrct_supporters_title} src={vrct_supporters_title}/>
+                <img className={styles.calc_period} src={calc_period_label}/>
+            </div>
             <ProgressBar />
             <SupportersWrapper />
             <ProgressBar />
