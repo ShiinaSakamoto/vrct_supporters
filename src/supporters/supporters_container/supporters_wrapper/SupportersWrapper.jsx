@@ -218,10 +218,12 @@ export const SupportersWrapper = () => {
     }, []);
 
     return (
-        <>
+        <div className={styles.container}>
+            <ProgressBar />
             <div className={styles.supporters_wrapper}>{renderImages()}</div>
             <p className={styles.last_updated_local_date}>{`Last updated date:\n${last_updated_local_date}`}</p>
-        </>
+            <ProgressBar />
+        </div>
     );
 };
 
@@ -272,4 +274,31 @@ const extractKeys = (data, keys_to_extract) => {
         }
     }
     return result;
+};
+
+
+const ProgressBar = () => {
+    const [is_active, setIsActive] = useState(false);
+    useEffect(() => {
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                setIsActive(true);
+            });
+        });
+
+        const interval = setInterval(() => {
+            setIsActive(false);
+            setTimeout(() => setIsActive(true), 50);
+        }, SHUFFLE_INTERVAL_TIME);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    return (
+        <div
+            className={clsx(styles.progress_bar, {
+                [styles.progress_bar_active]: is_active,
+            })}
+        />
+    );
 };

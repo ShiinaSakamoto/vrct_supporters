@@ -6,7 +6,9 @@ export const Supporters = () => {
     return (
         <div className={styles.container}>
             <SupportUsContainer />
-            <SupportersContainer />
+            <div className={styles.supportersWrapper}>
+                <SupportersContainer />
+            </div>
         </div>
     );
 };
