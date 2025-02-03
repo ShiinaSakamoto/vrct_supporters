@@ -69,11 +69,12 @@ try {
 }
 
 // **画像出力ディレクトリの確認と作成**
-const outputDir = "src/assets/supporters/supporters_labels";
-if (!fs.existsSync(outputDir)) {
+const base_dir = "src/assets/supporters";
+const supporters_labels_output_dir = `${base_dir}/supporters_labels`;
+if (!fs.existsSync(supporters_labels_output_dir)) {
     try {
-        fs.mkdirSync(outputDir, { recursive: true });
-        console.log(`[INFO] 出力ディレクトリを作成しました: ${outputDir}`);
+        fs.mkdirSync(supporters_labels_output_dir, { recursive: true });
+        console.log(`[INFO] 出力ディレクトリを作成しました: ${supporters_labels_output_dir}`);
     } catch (error) {
         logError("出力ディレクトリの作成に失敗しました", error);
         process.exit(1);
@@ -92,7 +93,7 @@ const calc_supporting_month = calc_support_period.at(-1);
 const right_away_credit_able_plan_list = ["mogu_2000", "mochi_1000", "fuwa_500"];
 
 
-const generateImage = (display_name, text_color, output_filename, supporter_id) => {
+const generateImage = (display_name, text_color, output_dir_path, output_filename, supporter_id) => {
     const language = detectLanguage(display_name);
 
     // フォントを取得
@@ -136,12 +137,12 @@ const generateImage = (display_name, text_color, output_filename, supporter_id) 
     ctx.fillText(display_name, canvas_width / 2, canvas_height / 2);
 
     // 画像を書き出し
-    const output_file_path = `${outputDir}/${output_filename}`;
+    const output_file_path = `${output_dir_path}/${output_filename}`;
     const buffer = canvas.toBuffer("image/png");
     fs.writeFileSync(output_file_path, buffer);
 
     // デバッグ用: 適用フォントとテキスト情報をログ出力
-    console.log(`[DEBUG] supporter_id: ${supporter_id}, font: ${ctx.font}, text: "${display_name}" output: ${output_file_path}`);
+    console.log(`[DEBUG] supporter_id: ${supporter_id}, font: ${ctx.font}, text: "${display_name}" output: ${output_dir_path}`);
 };
 
 // 各オブジェクトに基づいて画像を生成
@@ -172,9 +173,12 @@ try {
         const text_color = json_item[calc_supporting_month] === "mogu_2000" ? text_color_black : text_color_white;
 
         const output_filename = `supporter_${supporter_id}.png`;
-        generateImage(display_name, text_color, output_filename, supporter_id);
+        generateImage(display_name, text_color, supporters_labels_output_dir, output_filename, supporter_id);
     });
-    generateImage("And You?", text_color_white, "and_you.png", "");
+    generateImage("And You?", text_color_white, supporters_labels_output_dir, "and_you.png", "");
+
+    generateImage(`-${calc_supporting_month}`, text_color_white, base_dir, "calc_period_label.png", "");
+
     console.log("[INFO] すべての画像が生成されました！");
 } catch (error) {
     logError("画像生成中にエラーが発生しました", error);
