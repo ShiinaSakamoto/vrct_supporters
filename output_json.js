@@ -13,4 +13,4 @@ const data = {
 
 // Write output JSON file.
 writeFileSync("src/assets/supporters/data.json", JSON.stringify(data, null, 4));
-console.log("JSONファイルを書き出しました！");
+console.log(`JSONファイルを書き出しました！ ${supporters_settings.last_updated_utc_date}`);
