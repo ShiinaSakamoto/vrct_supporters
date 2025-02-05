@@ -9,10 +9,8 @@ const supporters_settings = json_data.supporters_settings;
 const supporters_data = json_data.supporters_data;
 
 const calc_support_period = supporters_settings.calc_support_period;
-const target_supporting_month = calc_support_period.at(-1);
 
 const chato_ex_count = supporters_settings.chato_ex_count;
-const last_updated_local_date = new Date(supporters_settings.last_updated_utc_date).toString();
 
 const image_sets = {
     supporter_cards: import.meta.glob("@supporters_page_assets/supporter_cards/*.png", { eager: true }),
@@ -57,27 +55,6 @@ const getSupportersIconsPath = (file_name) =>
 export const SupportersWrapper = () => {
     // const { saveScrollPosition, restoreScrollPosition } = useSettingBoxScrollPosition();
 
-
-
-    let credit_pending_count = 0;
-    const filtered_data = supporters_data.filter((supporter) => {
-        if (!supporter.supporter_id) return false;
-
-        const months = Object.keys(supporter).filter((key) => calc_support_period.includes(key));
-        const has_valid_month = months.some((month) => supporter[month]);
-        if (!has_valid_month) return false;
-
-        const basic_300_months = months.filter((month) => supporter[month] === "basic_300");
-        const has_special_plan = months.some((month) => ["fuwa_500", "mochi_1000", "mogu_2000"].includes(supporter[month]));
-
-        if (basic_300_months.length === 1 && !has_special_plan) {
-            credit_pending_count++;
-            return false;
-        }
-
-        return true;
-    });
-
     const grouped_data = {
         mogu_2000: [],
         mochi_1000: [],
@@ -87,8 +64,8 @@ export const SupportersWrapper = () => {
         and_you: [],
     };
 
-    filtered_data.forEach((supporter) => {
-        const value = supporter[target_supporting_month] || "former_supporter";
+    supporters_data.forEach((supporter) => {
+        const value = supporter.highest_plan_during_the_period || "former_supporter";
         if (grouped_data[value]) {
             grouped_data[value].push(supporter);
         } else {
@@ -136,7 +113,7 @@ export const SupportersWrapper = () => {
 
     const renderImages = () => {
         return supportersData.map((item, index) => {
-            const target_plan = item[target_supporting_month];
+            const target_plan = item.highest_plan_during_the_period;
             const img_src = getSupporterCard(target_plan);
             const is_default_icon = item.supporter_icon_id === "";
             const is_icon_plan = ["mogu_2000", "mochi_1000"].includes(target_plan);
@@ -221,7 +198,6 @@ export const SupportersWrapper = () => {
         <div className={styles.container}>
             <ProgressBar />
             <div className={styles.supporters_wrapper}>{renderImages()}</div>
-            <p className={styles.last_updated_local_date}>{`Last updated date:\n${last_updated_local_date}`}</p>
             <ProgressBar />
         </div>
     );

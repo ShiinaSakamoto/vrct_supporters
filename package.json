@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev-ui": "vite",
-    "build": "vite build",
+    "build": "npm run output && vite build",
     "preview": "vite preview",
-    "output": "node output_labels.js && node output_json.js"
+    "output": "node output_json.js && node output_labels.js"
   },
   "dependencies": {
     "canvas": "^3.1.0",

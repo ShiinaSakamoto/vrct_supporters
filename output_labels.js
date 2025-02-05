@@ -58,10 +58,10 @@ const getFontFamily = (language) => {
 };
 
 // JSONファイルの読み込み
-let jsonData;
+let supporters_json_data_for_label;
 try {
-    const jsonFilePath = "./supporters_data.json";
-    jsonData = JSON.parse(fs.readFileSync(jsonFilePath, "utf8"));
+    const jsonFilePath = "./adjusted_supporters_data.json";
+    supporters_json_data_for_label = JSON.parse(fs.readFileSync(jsonFilePath, "utf8"));
     console.log("[INFO] JSONファイルの読み込みに成功しました");
 } catch (error) {
     logError("JSONファイルの読み込み中にエラーが発生しました", error);
@@ -87,11 +87,7 @@ if (!fs.existsSync(supporters_labels_output_dir)) {
 const text_color_white = "#f2f2f2";
 const text_color_black = "#050505";
 
-const calc_support_period = supporters_settings.calc_support_period;
-const calc_supporting_month = calc_support_period.at(-1);
-
-const right_away_credit_able_plan_list = ["mogu_2000", "mochi_1000", "fuwa_500"];
-
+const calc_supporting_months = supporters_settings.calc_supporting_months;
 
 const generateImage = (display_name, text_color, output_dir_path, output_filename, supporter_id) => {
     const language = detectLanguage(display_name);
@@ -147,37 +143,20 @@ const generateImage = (display_name, text_color, output_dir_path, output_filenam
 
 // 各オブジェクトに基づいて画像を生成
 try {
-    jsonData.forEach((json_item) => {
+    supporters_json_data_for_label.forEach((json_item) => {
         const { supporter_id, display_name } = json_item;
-        if (supporter_id === "" || display_name === "") return;
 
-        let is_credit_able = true;
-        let count_basic_plan = 0;
-        for (const item of calc_support_period) {
-            const target = json_item[item];
-            if (right_away_credit_able_plan_list.includes(target) === true) break;
-            if (target === "basic_300") {
-                count_basic_plan++;
-                if (count_basic_plan >= 2) {
-                    is_credit_able = true;
-                    break;
-                } else {
-                    is_credit_able = false;
-                }
-            }
-        }
-
-        if (is_credit_able === false) return;
-
-            // テキストを設定
-        const text_color = json_item[calc_supporting_month] === "mogu_2000" ? text_color_black : text_color_white;
+        // テキストを設定
+        const text_color = json_item.highest_plan_during_the_period === "mogu_2000" ? text_color_black : text_color_white;
 
         const output_filename = `supporter_${supporter_id}.png`;
         generateImage(display_name, text_color, supporters_labels_output_dir, output_filename, supporter_id);
     });
     generateImage("And You?", text_color_white, supporters_labels_output_dir, "and_you.png", "");
 
-    generateImage(`-${calc_supporting_month}`, text_color_white, base_dir, "calc_period_label.png", "");
+    let calc_supporting_months_label = `~ ${calc_supporting_months.join(" + ")}`;
+
+    generateImage(calc_supporting_months_label, text_color_white, base_dir, "calc_period_label.png", "");
 
     console.log("[INFO] すべての画像が生成されました！");
 } catch (error) {
