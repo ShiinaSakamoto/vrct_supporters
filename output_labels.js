@@ -95,7 +95,13 @@ const generateImage = (display_name, text_color, output_dir_path, output_filenam
     // フォントを取得
     const fontFamily = getFontFamily(language);
 
-    const font_setting = `400 40px "${fontFamily}"`;
+    let font_size = "40";
+    if (display_name.length >= 12) font_size = "38";
+    if (display_name.length >= 14) font_size = "36";
+    if (display_name.length >= 16) font_size = "34";
+    if (display_name.length >= 18) font_size = "32";
+
+    const font_setting = `400 ${font_size}px "${fontFamily}"`;
 
 
     // 一時キャンバスでテキストの幅と高さを計算
