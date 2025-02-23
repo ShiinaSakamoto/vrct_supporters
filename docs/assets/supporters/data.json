@@ -352,6 +352,19 @@
             "highest_plan_during_the_period": "basic_300"
         },
         {
+            "supporter_id": 28,
+            "supporter_icon_id": "",
+            "type": "Patreon",
+            "2024-10": "",
+            "2024-11": "",
+            "2024-12": "",
+            "2025-01": "basic_300",
+            "2025-02": "basic_300",
+            "2025-03": "",
+            "2025-04": "",
+            "highest_plan_during_the_period": "basic_300"
+        },
+        {
             "supporter_id": 29,
             "supporter_icon_id": "",
             "type": "FANBOX",
@@ -379,7 +392,7 @@
         }
     ],
     "supporters_settings": {
-        "last_updated_utc_date": "2025-02-12T14:00:00.000Z",
+        "last_updated_utc_date": "2025-02-22T14:00:00.000Z",
         "plan_priority": [
             "mogu_2000",
             "mochi_1000",

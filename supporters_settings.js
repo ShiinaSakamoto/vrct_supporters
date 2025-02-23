@@ -6,7 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const year = "2025";
 const month = "02";
-const day = "12";
+const day = "22";
 
 const hour = "23";
 const min = "00";
