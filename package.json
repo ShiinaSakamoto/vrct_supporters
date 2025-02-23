@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev-ui": "vite",
+    "dev-ui-current": "vite",
+    "dev-ui": "npm run output && vite",
     "build": "npm run output && vite build",
     "preview": "vite preview",
     "output": "node output_json.js && node output_labels.js"
