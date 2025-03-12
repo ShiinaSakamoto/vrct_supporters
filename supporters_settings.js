@@ -7,7 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // 0埋め 最終更新（とする）日時
 const year = "2025";
 const month = "03";
-const day = "05";
+const day = "12";
 
 const hour = "23";
 const min = "59";
