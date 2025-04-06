@@ -61,7 +61,7 @@ publish process:
 - 上部メニューのJSONからJSONで出力 ダウンロード
 - ダウンロードファイルをルートディレクトリに配置or上書き
 - `supporters_settings.js` にて設定 monthやdayを設定 hourはその日いっぱいまでの計算であれば23時でOK（0埋め 日本時間で記述）
-- `supporters_settings.js` 必要であれば`calc_supporting_months`と`calc_support_period`を更新
+- `supporters_settings.js` 必要であれば`calc_latest_month`を更新
 - `npm run dev-ui`でエラーなく更新されていることを確認
 - `npm run build`で本番環境用ビルド
 - `npm run preview` でエラーなく更新されていることを確認（本番環境）
