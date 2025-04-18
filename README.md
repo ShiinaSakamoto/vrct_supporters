@@ -55,8 +55,8 @@
 
 ---
 <div align="left">
-publish process:
 
+#### publish process:
 - VRCTサポーターリストをアップデート（Googleスプシー）
 - 上部メニューのJSONからJSONで出力 ダウンロード
 - ダウンロードファイルをルートディレクトリに配置or上書き
@@ -72,3 +72,10 @@ publish process:
 - mainにマージ `develop`から`main`
 - git push
 - githubページで更新を確認後 VRCT本体でも更新を確認
+
+
+#### Add a supporter icon process:
+- もらった画像をFigma または手動でサイズを 120 x 120 (px) に変更、ファイル名を supporter_icon_xx (xx は手動で連番計算 新規アイコンではなく、更新の場合は前回と同じ supporter_icon_id) にする
+- 画像ファイルを'src\assets\supporters\supporters_icons'に配置
+- VRCTサポーターリストの該当サポーター行の supporter_icon_id に 先程の番号を入力
+- 以降 publish process に従って更新

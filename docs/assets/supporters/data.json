@@ -18,7 +18,7 @@
         },
         {
             "supporter_id": 4,
-            "supporter_icon_id": "",
+            "supporter_icon_id": 10,
             "type": "FANBOX",
             "プラン順序": 1,
             "2024-10": "mogu_2000",
@@ -482,7 +482,7 @@
         }
     ],
     "supporters_settings": {
-        "last_updated_utc_date": "2025-04-06T14:59:59.000Z",
+        "last_updated_utc_date": "2025-04-18T07:00:00.000Z",
         "plan_priority": [
             "mogu_2000",
             "mochi_1000",
