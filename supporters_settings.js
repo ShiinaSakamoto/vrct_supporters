@@ -78,19 +78,19 @@ const generateMonthRange = (range_mode, date_str1, date_str2) => {
 
 // 0埋め 最終更新（とする）日時
 const year = "2025";
-const month = "04";
-const day = "18";
+const month = "05";
+const day = "04";
 
-const hour = "17";
-const min = "00";
-const sec = "00";
+const hour = "23";
+const min = "59";
+const sec = "59";
 
-const calc_latest_month = "2025-04";
+const calc_latest_month = "2025-05";
 
 export const supporters_settings = {
     last_updated_utc_date: new Date(`${year}-${month}-${day}T${hour}:${min}:${sec}+09:00`),
     plan_priority:["mogu_2000", "mochi_1000", "fuwa_500", "basic_300", ""],
-    calc_supporting_months: generateMonthRange("offset", calc_latest_month, "-2"),
+    calc_supporting_months: generateMonthRange("offset", calc_latest_month, "-2"), // -2 = 今月+先月の2ヶ月分計算
     calc_support_period: generateMonthRange("range", "2024-10", calc_latest_month),
     chato_ex_count: Object.keys(fg.sync(path.join(__dirname, "src/assets/supporters/chato_expressions/*.png").replace(/\\/g, "/"))).length,
 };
