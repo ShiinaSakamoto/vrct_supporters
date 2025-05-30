@@ -20,7 +20,7 @@ const image_sets = {
     supporters_icons: import.meta.glob("@supporters_page_assets/supporters_icons/*.png", { eager: true }),
 };
 
-const SHUFFLE_INTERVAL_TIME = 20000;
+const SHUFFLE_INTERVAL_TIME = 2000000;
 
 const and_you_data = {
     supporter_id: "and_you",
@@ -232,30 +232,32 @@ const SupporterPeriodContainer = ({ settings, calc_support_period }) => {
 
     return (
         <div className={styles.supporter_period_container}>
-            {Object.entries(period_data).map(([key, item], index) => {
-                if (item === "") return null;
-                const period_box_class_name = clsx(styles.period_box, {
-                    [styles.mogu_bar]: item === "mogu_2000",
-                    [styles.mochi_bar]: item === "mochi_1000",
-                    [styles.fuwa_bar]: item === "fuwa_500",
-                    [styles.basic_bar]: item === "basic_300",
-                });
+            <div className={styles.supporter_period_wrapper}>
+                {Object.entries(period_data).map(([key, item], index) => {
+                    if (item === "") return null;
+                    const period_box_class_name = clsx(styles.period_box, {
+                        [styles.mogu_bar]: item === "mogu_2000",
+                        [styles.mochi_bar]: item === "mochi_1000",
+                        [styles.fuwa_bar]: item === "fuwa_500",
+                        [styles.basic_bar]: item === "basic_300",
+                    });
 
-                return (
-                    <Tooltip
-                        key={index}
-                        title={
-                            <p className={styles.tooltip_period_label}>{key}</p>
-                        }
-                        placement="top"
-                        slotProps={offset}
-                    >
-                        <div className={styles.period_box_wrapper}>
-                            <div className={period_box_class_name}></div>
-                        </div>
-                    </Tooltip>
-                );
-            })}
+                    return (
+                        <Tooltip
+                            key={index}
+                            title={
+                                <p className={styles.tooltip_period_label}>{key}</p>
+                            }
+                            placement="top"
+                            slotProps={offset}
+                        >
+                            <div className={styles.period_box_wrapper}>
+                                <div className={period_box_class_name}></div>
+                            </div>
+                        </Tooltip>
+                    );
+                })}
+            </div>
         </div>
     );
 };
