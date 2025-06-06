@@ -78,14 +78,14 @@ const generateMonthRange = (range_mode, date_str1, date_str2) => {
 
 // 0埋め 最終更新（とする）日時
 const year = "2025";
-const month = "05";
-const day = "04";
+const month = "06";
+const day = "06";
 
-const hour = "23";
+const hour = "11";
 const min = "59";
 const sec = "59";
 
-const calc_latest_month = "2025-05";
+const calc_latest_month = "2025-06";
 
 export const supporters_settings = {
     last_updated_utc_date: new Date(`${year}-${month}-${day}T${hour}:${min}:${sec}+09:00`),

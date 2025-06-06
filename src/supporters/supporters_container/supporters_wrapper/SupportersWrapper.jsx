@@ -20,7 +20,7 @@ const image_sets = {
     supporters_icons: import.meta.glob("@supporters_page_assets/supporters_icons/*.png", { eager: true }),
 };
 
-const SHUFFLE_INTERVAL_TIME = 2000000;
+const SHUFFLE_INTERVAL_TIME = 20000;
 
 const and_you_data = {
     supporter_id: "and_you",
