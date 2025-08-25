@@ -598,7 +598,7 @@
             "supporter_id": 8,
             "supporter_icon_id": "",
             "type": "FANBOX",
-            "プラン順序": 99,
+            "プラン順序": 1,
             "2024-10": "basic_300",
             "2024-11": "basic_300",
             "2024-12": "basic_300",
@@ -609,12 +609,12 @@
             "2025-05": "",
             "2025-06": "",
             "2025-07": "",
-            "2025-08": "",
+            "2025-08": "mogu_2000",
             "2025-09": "",
             "2025-10": "",
             "2025-11": "",
             "2025-12": "",
-            "highest_plan_during_the_period": ""
+            "highest_plan_during_the_period": "mogu_2000"
         },
         {
             "supporter_id": 16,
@@ -750,7 +750,7 @@
         }
     ],
     "supporters_settings": {
-        "last_updated_utc_date": "2025-08-06T14:59:59.000Z",
+        "last_updated_utc_date": "2025-08-25T14:59:59.000Z",
         "plan_priority": [
             "mogu_2000",
             "mochi_1000",
