@@ -67,9 +67,9 @@
 - `npm run preview` でエラーなく更新されていることを確認（本番環境）
 - `supporters_data.json`と`adjusted_supporters_data`がgitignoreされていることを確認
 - git add .
-- `develop`ブランチ
+- （任意）`develop`ブランチ
 - git commit `[Update] 2025-xx-xx` プラスなにかアプデがあれば
-- mainにマージ `develop`から`main`
+- （任意）mainにマージ `develop`から`main`
 - git push
 - githubページで更新を確認後 VRCT本体でも更新を確認
 
