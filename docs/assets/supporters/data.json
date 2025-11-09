@@ -18,7 +18,7 @@
             "2025-08": "mogu_2000",
             "2025-09": "mogu_2000",
             "2025-10": "mogu_2000",
-            "2025-11": "",
+            "2025-11": "mogu_2000",
             "2025-12": "",
             "highest_plan_during_the_period": "mogu_2000"
         },
@@ -772,7 +772,7 @@
         }
     ],
     "supporters_settings": {
-        "last_updated_utc_date": "2025-11-06T14:59:59.000Z",
+        "last_updated_utc_date": "2025-11-09T07:59:59.000Z",
         "plan_priority": [
             "mogu_2000",
             "mochi_1000",
