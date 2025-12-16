@@ -213,7 +213,7 @@ const AndYouIcon = () => {
                 <div className={styles.and_you_2}></div>
             </div>
             <p className={styles.and_you_fanbox_link_text}>
-                FANBOX Ko-fi Patreon
+                FANBOX Patreon
             </p>
             <ArrowLeftSvg className={styles.arrow_left_svg} />
         </>

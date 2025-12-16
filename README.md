@@ -29,12 +29,6 @@
     </picture>
 </a>&emsp;&nbsp;
 
-<a href="https://ko-fi.com/vrct_dev">
-    <picture>
-        <img src="src/assets/kofi_logo.png" alt="Ko-fi" height="22px">
-    </picture>
-</a>&emsp;&nbsp;
-
 <br>
 <br>
 

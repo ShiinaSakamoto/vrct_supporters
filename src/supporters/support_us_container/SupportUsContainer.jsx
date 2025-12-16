@@ -19,14 +19,6 @@ export const SupportUsContainer = () => {
                         <div className={styles.spiral_top}></div>
                         <div className={styles.spiral_bottom}></div>
                     </a>
-                    <a className={styles.support_button} href="https://ko-fi.com/vrct_dev" target="_blank" rel="noreferrer">
-                        <img
-                            src={kofi_logo}
-                            className={clsx(styles.support_img, styles.kofi_logo)}
-                        />
-                        <div className={styles.spiral_top}></div>
-                        <div className={styles.spiral_bottom}></div>
-                    </a>
                     <a className={styles.support_button} href="https://www.patreon.com/vrct_dev" target="_blank" rel="noreferrer">
                         <img
                             src={patreon_logo}
