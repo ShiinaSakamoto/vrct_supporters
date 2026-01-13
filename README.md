@@ -62,7 +62,7 @@
 - `supporters_data.json`と`adjusted_supporters_data`がgitignoreされていることを確認
 - git add .
 - （任意）`develop`ブランチ
-- git commit `[Update] 2025-xx-xx` プラスなにかアプデがあれば
+- git commit `[Update] 2026-xx-xx` プラスなにかアプデがあれば
 - （任意）mainにマージ `develop`から`main`
 - git push
 - githubページで更新を確認後 VRCT本体でも更新を確認
