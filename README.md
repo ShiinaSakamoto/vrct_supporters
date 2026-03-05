@@ -1,6 +1,8 @@
 # VRCT Supporter Page
 [VRCT Project](https://github.com/misyaguziya/VRCT)
 
+[VRCT Supporters Page](https://shiinasakamoto.github.io/vrct_supporters/)
+
 <div align="center">
 
 <picture>
