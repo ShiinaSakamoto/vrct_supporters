@@ -89,7 +89,10 @@ const text_color_black = "#050505";
 
 const calc_supporting_months = supporters_settings.calc_supporting_months;
 
+const normalizeDisplayName = (display_name) => String(display_name ?? "").replace(/[\r\n]+$/g, "");
+
 const generateImage = (display_name, text_color, output_dir_path, output_filename, supporter_id) => {
+    display_name = normalizeDisplayName(display_name);
     const language = detectLanguage(display_name);
 
     // フォントを取得
