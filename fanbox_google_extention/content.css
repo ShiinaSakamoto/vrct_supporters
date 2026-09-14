@@ -1,0 +1,201 @@
+/* VRCT FANBOX Supporter Highlighter & Exporter Styles */
+
+/* 行全体のハイライト */
+div[class*="SupportTransaction__Wrapper"].vrct-highlighted {
+  position: relative;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  border-radius: 6px;
+  margin-bottom: 4px;
+}
+
+/* プラン別スタイル */
+div[class*="SupportTransaction__Wrapper"].vrct-plan-mogu {
+  border-left: 5px solid #f59e0b !important;
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.14) 0%, rgba(245, 158, 11, 0.02) 100%) !important;
+}
+div[class*="SupportTransaction__Wrapper"].vrct-plan-mogu:hover {
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.22) 0%, rgba(245, 158, 11, 0.06) 100%) !important;
+}
+
+div[class*="SupportTransaction__Wrapper"].vrct-plan-mochi {
+  border-left: 5px solid #a861b4 !important;
+  background: linear-gradient(90deg, rgba(168, 97, 180, 0.14) 0%, rgba(168, 97, 180, 0.02) 100%) !important;
+}
+div[class*="SupportTransaction__Wrapper"].vrct-plan-mochi:hover {
+  background: linear-gradient(90deg, rgba(168, 97, 180, 0.22) 0%, rgba(168, 97, 180, 0.06) 100%) !important;
+}
+
+div[class*="SupportTransaction__Wrapper"].vrct-plan-fuwa {
+  border-left: 5px solid #5788a2 !important;
+  background: linear-gradient(90deg, rgba(87, 136, 162, 0.14) 0%, rgba(87, 136, 162, 0.02) 100%) !important;
+}
+div[class*="SupportTransaction__Wrapper"].vrct-plan-fuwa:hover {
+  background: linear-gradient(90deg, rgba(87, 136, 162, 0.22) 0%, rgba(87, 136, 162, 0.06) 100%) !important;
+}
+
+div[class*="SupportTransaction__Wrapper"].vrct-plan-basic {
+  border-left: 5px solid #368777 !important;
+  background: linear-gradient(90deg, rgba(54, 135, 119, 0.14) 0%, rgba(54, 135, 119, 0.02) 100%) !important;
+}
+div[class*="SupportTransaction__Wrapper"].vrct-plan-basic:hover {
+  background: linear-gradient(90deg, rgba(54, 135, 119, 0.22) 0%, rgba(54, 135, 119, 0.06) 100%) !important;
+}
+
+/* 行内プランバッジ */
+.vrct-plan-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 3px 8px;
+  border-radius: 12px;
+  margin-left: 8px;
+  letter-spacing: 0.02em;
+  vertical-align: middle;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.vrct-plan-badge.vrct-badge-mogu {
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+}
+
+.vrct-plan-badge.vrct-badge-mochi {
+  background-color: #f5e8f7;
+  color: #6b21a8;
+  border: 1px solid #e9d5ff;
+}
+
+.vrct-plan-badge.vrct-badge-fuwa {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+}
+
+.vrct-plan-badge.vrct-badge-basic {
+  background-color: #e6f7f3;
+  color: #115e59;
+  border: 1px solid #a7f3d0;
+}
+
+/* ツールバーコンテナ */
+.vrct-fanbox-toolbar {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin: 16px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.vrct-toolbar-left {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.vrct-toolbar-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 13px;
+  color: #1e293b;
+  margin-right: 8px;
+}
+
+.vrct-toolbar-title-logo {
+  background: linear-gradient(135deg, #368777, #a861b4);
+  color: #ffffff;
+  border-radius: 6px;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.vrct-stat-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 16px;
+  background-color: #f1f5f9;
+  color: #334155;
+  font-weight: 500;
+}
+
+.vrct-stat-chip strong {
+  font-weight: 700;
+}
+
+.vrct-stat-chip.chip-mogu {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+.vrct-stat-chip.chip-mochi {
+  background-color: #f5e8f7;
+  color: #6b21a8;
+}
+.vrct-stat-chip.chip-fuwa {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+.vrct-stat-chip.chip-basic {
+  background-color: #e6f7f3;
+  color: #115e59;
+}
+
+.vrct-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vrct-export-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #368777 0%, #2f6f60 100%);
+  color: #ffffff !important;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(54, 135, 119, 0.35);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.vrct-export-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(54, 135, 119, 0.45);
+  background: linear-gradient(135deg, #3b9483 0%, #347f6f 100%);
+}
+
+.vrct-export-btn:active {
+  transform: translateY(0);
+}
+
+.vrct-export-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
