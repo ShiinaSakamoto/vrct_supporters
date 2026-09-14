@@ -53,21 +53,21 @@
 <div align="left">
 
 #### publish process:
-- VRCTサポーターリストをアップデート（Googleスプシー）
-- 上部メニューのJSONからJSONで出力 ダウンロード
-- ダウンロードファイルをルートディレクトリに配置or上書き
-- `supporters_settings.js` にて設定 monthやdayを設定 hourはその日いっぱいまでの計算であれば23時でOK（0埋め 日本時間で記述）
-- `supporters_settings.js` 必要であれば`calc_latest_month`を更新
-- `npm run dev-ui`でエラーなく更新されていることを確認（buildは本番環境用のファイルを上書きするからミスってた時、修正がめんどくさいので事前確認したい）
-- `npm run build`で本番環境用ビルド
-- `npm run preview` でエラーなく更新されていることを確認（本番環境）
-- `supporters_data.json`と`adjusted_supporters_data`がgitignoreされていることを確認
-- git add .
-- （任意）`develop`ブランチ
-- git commit `[Update] 2026-xx-xx` プラスなにかアプデがあれば
-- （任意）mainにマージ `develop`から`main`
-- git push
-- githubページで更新を確認後 VRCT本体でも更新を確認
+1. VRCTサポーターリストをアップデート（Googleスプシー）
+2. 上部メニューのJSONからJSONで出力 ダウンロード
+3. ダウンロードファイルをルートディレクトリに配置or上書き（`supporters_data.json`）
+4. `npm run publish` を実行
+   - **日時・集計月の自動補完**: 実行日（JST）・`23:59:59`・当月が初期値として提示されるため、**Enterキーを押すだけ**で適用されます（変更したい場合のみ直接入力）。
+   - **データ生成 & ビルド**: `output_json.js`, `output_labels.js`, `vite build` が自動で順次実行されます。
+   - **機密データ漏洩セーフガード**: `supporters_data.json` や `adjusted_supporters_data.json` が Git の追跡・ステージング対象に入っていないか自動検査されます。
+   - **プレビュー確認（任意）**: 必要に応じてローカルプレビューを起動して確認できます。
+   - **Gitコミット**: `[Update] YYYY-MM-DD`（追記コメントも可能）で自動コミットされます。
+   - **安全なPush制御**:
+     - `main` 以外のブランチ（例: `develop`）では、push は自動停止されます（ローカルコミットのみ完了）。
+     - `main` ブランチの場合でも、push 直前に最終確認プロンプト（`y/N`）が表示され、`y` を入力した場合のみ `git push` が実行されます。
+5. GitHubページ（およびVRCT本体）で更新を確認
+
+*(※ 個別に手動実行したい場合は従来通り `npm run dev-ui`, `npm run build`, `npm run preview` も使用可能です)*
 
 
 #### Add a supporter icon process:
