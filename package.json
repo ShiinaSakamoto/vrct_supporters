@@ -8,7 +8,8 @@
     "dev-ui": "npm run output && vite",
     "build": "npm run output && vite build",
     "preview": "vite preview",
-    "output": "node output_json.js && node output_labels.js"
+    "output": "node output_json.js && node output_labels.js",
+    "publish": "node publish.js"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
