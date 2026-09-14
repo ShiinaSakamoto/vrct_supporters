@@ -247,11 +247,20 @@ async function main() {
             console.log(`main 以外のブランチのため、リモートへの push は行いませんでした。`);
             console.log(`ローカルへのコミットは正常に完了しています。main へのマージ後に push してください。\n`);
         } else {
-            const confirmPush = await prompt.ask(`\norigin/main に push しますか？ (y/N) [初期値: N]: `);
-            if (confirmPush.trim().toLowerCase() === "y" || confirmPush.trim().toLowerCase() === "yes") {
-                runCommand("git push", "GitHub への push 実行");
-                console.log("\n🎉 GitHub への push が完了しました！");
-                console.log("GitHub Pages および VRCT 本体での反映を確認してください。\n");
+            const confirmPush = await prompt.ask(`\norigin/main に push しますか？ (Y/n) [初期値: Y]: `);
+            if (confirmPush.trim().toLowerCase() !== "n" && confirmPush.trim().toLowerCase() !== "no") {
+                // プロンプトを閉じて標準入力を git push (SSHパスフレーズやパスワード入力) に渡せるようにする
+                prompt.close();
+                console.log("\n▶ GitHub への push 実行 (git push)");
+                try {
+                    execSync("git push", { stdio: "inherit", cwd: __dirname });
+                    console.log("\n🎉 GitHub への push が完了しました！");
+                    console.log("GitHub Pages および VRCT 本体での反映を確認してください。\n");
+                } catch (pushError) {
+                    console.error("\n❌ git push に失敗しました。ネットワークや認証状態を確認してください。");
+                    console.log("必要に応じて手動で `git push` を実行してください。\n");
+                }
+                return;
             } else {
                 console.log("\nℹ️ push はスキップしました。コミットは正常に完了しています。");
                 console.log("公開する準備ができたら、手動で `git push` を実行してください。\n");
