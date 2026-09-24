@@ -75,6 +75,11 @@ const getJSTDateParts = () => {
     };
 };
 
+const getDefaultTimeOneHourAgo = ({ hour, min, sec }) => {
+    const oneHourEarlier = (Number(hour) - 1 + 24) % 24;
+    return `${String(oneHourEarlier).padStart(2, "0")}:59:59`;
+};
+
 const runCommand = (cmd, description) => {
     console.log(`\n▶ ${description} (${cmd})`);
     try {
@@ -154,7 +159,7 @@ async function main() {
         // 2. 日時・対象月の対話型入力（デフォルト値付き、Enterで即決定）
         const jst = getJSTDateParts();
         const defaultDate = `${jst.year}-${jst.month}-${jst.day}`;
-        const defaultTime = "23:59:59";
+        const defaultTime = getDefaultTimeOneHourAgo(jst);
         const defaultMonth = `${jst.year}-${jst.month}`;
 
         console.log("\n--- [1/4] 設定確認 (Enterキーで初期値を採用) ---");
