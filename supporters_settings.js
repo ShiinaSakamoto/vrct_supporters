@@ -79,7 +79,7 @@ const generateMonthRange = (range_mode, date_str1, date_str2) => {
 // 0埋め 最終更新（とする）日時
 const year = "2026";
 const month = "11";
-const day = "06";
+const day = "16";
 
 const hour = "10";
 const min = "59";
